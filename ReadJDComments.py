@@ -2,7 +2,6 @@ import urllib2
 import re
 import time
 import logging.handlers
-import difflib
 
 # Log File sort by time
 tm = time.strftime('%Y%m%d_%H%M%S', time.localtime(time.time()))

@@ -17,7 +17,7 @@ logger = logging.getLogger('Comments')
 logger.addHandler(handler)
 logger.setLevel(logging.DEBUG)
 
-url = 'http://search.jd.com/Search?keyword=%E8%93%9D%E5%85%89%E6%92%AD%E6%94%BE%E5%99%A8&enc=utf-8&qrst=1&rt=1&stop=1&vt=2&wq=%E8%93%9D%E5%85%89&psort=3&stock=1&wtype=1&click=1'
+url = ''
 pre_content = urllib2.urlopen(url).read()
 e = re.compile(r'<em>\D\D\D<b>(\d)</b>\D\D\D&')
 page = re.findall(e, pre_content)

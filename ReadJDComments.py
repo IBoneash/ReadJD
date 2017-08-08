@@ -2,7 +2,6 @@ import urllib2
 import re
 import time
 import logging.handlers
-import difflib
 
 # Log File sort by time
 tm = time.strftime('%Y%m%d_%H%M%S', time.localtime(time.time()))
@@ -18,7 +17,7 @@ logger = logging.getLogger('Comments')
 logger.addHandler(handler)
 logger.setLevel(logging.DEBUG)
 
-url = 'https://list.jd.com/list.html?cat=652,654,5012&page=1&delivery=1&sort=sort_totalsales15_desc&trans=1&JL=4_10_0#J_main'
+url = 'http://search.jd.com/Search?keyword=%E8%93%9D%E5%85%89%E6%92%AD%E6%94%BE%E5%99%A8&enc=utf-8&qrst=1&rt=1&stop=1&vt=2&wq=%E8%93%9D%E5%85%89&psort=3&stock=1&wtype=1&click=1'
 pre_content = urllib2.urlopen(url).read()
 e = re.compile(r'<em>\D\D\D<b>(\d)</b>\D\D\D&')
 page = re.findall(e, pre_content)
@@ -36,7 +35,7 @@ for x in range(1, page):
     except:
         pass
 
-    a = re.compile(r'href="//item.jd.com/(\d+).html\?dist=jd">')
+    a = re.compile(r'href="//item.jd.com/(\d+).html\?dist=jd"')
     result = re.findall(a, content)
 
     b = ['ID', 'Good', 'Rate', 'Medium', 'Rate', 'Bad', 'rate']
